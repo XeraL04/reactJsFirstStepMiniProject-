@@ -1,0 +1,17 @@
+.collection-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.collection-list h2{
+  margin-top: 25px;
+  text-transform:capitalize;
+}
+
+.table-of-collections{
+  margin-top: 10px;
+}
+  
+
+
+
