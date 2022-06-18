@@ -1,5 +1,5 @@
 import React from "react";
-// import Footer from "../../Components/footer/Footer"
+
 import './imeiList.css'
 
 import Table from '@mui/material/Table';
@@ -100,9 +100,6 @@ const handleChangeRowsPerPage = (event) => {
         </TableContainer>
         </div>
         </div>
-        {/* <div>
-        <Footer/>
-        </div> */}
     </div>
   );
 }

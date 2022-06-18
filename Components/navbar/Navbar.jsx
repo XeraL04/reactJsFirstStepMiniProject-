@@ -5,10 +5,10 @@ const Navbar = () => {
             <h1>Algeofleet</h1>
                 <div className="links">
                     <Link to="/">Home</Link>
-                    <Link to="/collections"> Collections</Link>
+                    <Link to="/collection"> Collections</Link>
                     <Link to="/imeiList"> Imei List</Link>
                     <Link to="/vehicleList"> Vehicule List</Link>
-                    <Link to="/CollapsTab"> colaps Tab</Link>
+                    {/* <Link to="/collection/:nameCollection"> Get Collection</Link> */}
                 </div>
         </nav>
      );

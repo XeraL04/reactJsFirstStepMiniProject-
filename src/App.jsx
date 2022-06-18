@@ -5,12 +5,14 @@ import Footer from '../Components/footer/Footer'
 
 import Navbar from '../Components/navbar/Navbar'
 import Home from '../Components/home/Home'
+
 import CollectionList from '../Components/collection/CollectionList'
 import ImeiList from '../Components/imei/ImeiList'
 import VehicleList from '../Components/vehicle/VehicleList'
-// import CollapsTab from '../Components/Table/CollapsTab'
+import Documents from '../Components/Docs/Documents'
+
 import ErrorPage from '../Components/ErrorPage'
-import {BrowserRouter as Router , Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -22,16 +24,13 @@ function App() {
   // imei
   const [imei, setImei] = useState([]);
   // const [query, setQuery] = useState("");
-
   
   // vehicle
   const [vehicle, setVehicle] = useState([]);
   const [queryVehicle, setQueryVehicle] = useState("");
 
-
-
 // use eff imei
-useEffect(() =>{
+    useEffect(() =>{
       const fetchDataImei = async ()=>{
           const res = await Axios.get(`http://localhost:5000/getImei?q=${query}`)
           setImei(res.data)
@@ -45,7 +44,6 @@ useEffect(() =>{
       const fetchData = async ()=>{
         const res = await Axios.get(`http://localhost:5000/collection?q=${query}`)
         setCollection(res.data);
-        // console.log(res.data);
 
       };
       if(query.length === 0 || query.length > 2)fetchData()
@@ -56,7 +54,6 @@ useEffect(() =>{
       const fetchDataVehicle = async ()=>{
         const res = await Axios.get(`http://localhost:5000/vehicleList?q=${query}`)
         setVehicle(res.data);
-        // console.log(res.data);
 
       };
       if(query.length === 0 || query.length > 2)fetchDataVehicle()
@@ -67,30 +64,25 @@ useEffect(() =>{
   return (
 <div className="page-container">
   <div className="content-wrap">
-  <Router>
-    <Navbar/>
-      <Routes>
+    <Router>
+      <Navbar/>
+        <Routes>
 
-        <Route path="/" element={<Home/>}/>
-        
-        {/* collection path */}
-        <Route path="/collections" element={<CollectionList collection={collection} query={query} setQuery={setQuery}/>}/>
-        
-        {/* imei list path */}
-        {/* <Route path="/imeiList" element={<ImeiList />}/> */}
-        <Route path="/imeiList" element={<ImeiList  imei={imei} query={query} setQuery={setQuery}/>}/>
-        
-        {/* collaps tab   // collection={collection} imei={imei} query={query} setQuery={setQuery}*/}
-        {/* <Route path="/CollapsTab" element={<Footer  />}/> */}
-        
-        {/* vehicle path */}
-        <Route path="/vehicleList" element={<VehicleList vehicle={vehicle} queryVehicle={queryVehicle} setQueryVehicle={setQueryVehicle}/>}/>
+          <Route path="/" element={<Home/>}/>
+          
+          <Route path="/collection" element={<CollectionList collection={collection} query={query} setQuery={setQuery}/>}/>         
+          
+          <Route path="/imeiList" element={<ImeiList  imei={imei} query={query} setQuery={setQuery}/>}/>
 
-        <Route path="*" element={<ErrorPage/>}/>
+          <Route path="/vehicleList" element={<VehicleList vehicle={vehicle} queryVehicle={queryVehicle} setQueryVehicle={setQueryVehicle}/>}/>
+          
+          <Route path="/collection/:nameCollection" element={<Documents/>}/>
+                                
+          <Route path="*" element={<ErrorPage/>}/>
 
-      </Routes>
-  </Router>
-      </div>
+        </Routes>
+    </Router>
+  </div>
     <Footer/>
 </div>
 )

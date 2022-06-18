@@ -49,7 +49,7 @@
   position:absolute;
   left:0;
   bottom:-10px;
-  background-color: #e91e63;
+  background-color: #96BF31;
   height: 2px;
   box-sizing: border-box;
   width:50px;
@@ -80,7 +80,7 @@
   }
   
 .footer-col ul li a:hover{
-  color: #ffffff;
+  color: #96BF31;
   padding-left: 8px;
   }
   
@@ -99,5 +99,5 @@
   
 .social-links a:hover{
   color: #24262b;
-  background-color:#ffffff
+  background-color:#96BF31
   }
